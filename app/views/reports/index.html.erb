@@ -1,0 +1,17 @@
+
+
+Total de vendas realizadas: <%=link_to @sales.count, sales_path %><br>
+Total de itens vendidos: <%= @sales.sum("amount")%><br>
+Estoque atual: <%= @inventories.sum("amount") - @sales.sum("amount") %> itens<br>
+Aluguel: R$ <%= @partners.sum("rent")%><br>
+
+<% sum = 0 %>
+<% @sales.each do |p| %>
+        <% product = p.product.price * p.amount %>
+        <% sum += product %>
+<% end %>
+
+Valor total de vendas: R$ <%= sum %><br>
+Valor total de repasses: <%= sum*0.9 %><br>
+
+Receita Total: <%= sum*0.1 + @partners.sum("rent")%>

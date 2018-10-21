@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spec</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= link_to "Início", root_path %> | <%= link_to  "Colaboradores", partners_path %> | <%= link_to "Produtos", products_path %> | <%= link_to "Estoque", inventories_path %> | <%= link_to "Vendas", sales_path %> | <%= link_to "Relatório", reports_path %>
+<br/>
+<%= yield %>
+
+
+</body>
+</html>
